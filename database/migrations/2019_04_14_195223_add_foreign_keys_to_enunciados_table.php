@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompetenciasTable extends Migration
+class AddForeignKeysToEnunciadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateCompetenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('competencias', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('ordem');
-            $table->text('descricao');
-            $table->integer('area_id')->unsigned();
-            $table->timestamps();
+        Schema::table('enunciados', function (Blueprint $table) {
+            $table->foreign('questao_id')->references('id')->on('questoes');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateCompetenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('competencias');
+        Schema::table('enunciados', function (Blueprint $table) {
+            $table->dropForeign(['questao_id']);
+        });
     }
 }

@@ -14,10 +14,12 @@ class CreateAlternativasTable extends Migration
     public function up()
     {
         Schema::create('alternativas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('descricao_alternativa')->nullable();
             $table->text('path_alternativa')->nullable();
             $table->boolean('imagem')->default(0);
+            $table->boolean('correta')->default(0);
+            $table->integer('questao_id')->unsigned();
             $table->timestamps();
         });
     }

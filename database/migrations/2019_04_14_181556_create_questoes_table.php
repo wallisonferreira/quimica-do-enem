@@ -14,9 +14,11 @@ class CreateQuestoesTable extends Migration
     public function up()
     {
         Schema::create('questoes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('descricao_problema');
             $table->integer('competencia_id')->unsigned();
+            $table->integer('conteudo_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

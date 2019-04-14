@@ -14,7 +14,7 @@ class CreateEnunciadosTable extends Migration
     public function up()
     {
         Schema::create('enunciados', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('descricao_enunciado');
             $table->integer('questao_id')->unsigned();
             $table->timestamps();

@@ -6,22 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property string $name
- * @property string $email
- * @property string $email_verified_at
- * @property string $password
- * @property string $remember_token
+ * @property string $descricao_enunciado
+ * @property int $questao_id
  * @property string $created_at
  * @property string $updated_at
  */
-class User extends Model
+class Enunciado extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'enunciados';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -37,22 +34,15 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'email',
-    ];
-
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'email_verified_at', 
+        'descricao_enunciado', 
+        'questao_id',
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function questoes()
+    public function questao()
     {
         return $this->belongsTo(Questao::class);
     }
-
 }
