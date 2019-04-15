@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Area;
+use App\Competencia;
 
 class CompetenciaTableSeeder extends Seeder
 {
@@ -21,6 +23,12 @@ class CompetenciaTableSeeder extends Seeder
             ['descricao' => 'Apropriar-se de conhecimentos da química para, em situações problema, interpretar, avaliar ou planejar intervenções científicotecnológicas.'],
             ['descricao' => 'Apropriar-se de conhecimentos da biologia para, em situações problema, interpretar, avaliar ou planejar intervenções científicotecnológicas.'],
         ];
+
+        foreach ($areas as $area) {
+            Area::create([
+                'descricao' => $area['descricao']
+            ]);
+        }
 
         $competencias = [
             [
@@ -83,26 +91,26 @@ class CompetenciaTableSeeder extends Seeder
                 'descricao' => 'Avaliar impactos em ambientes naturais decorrentes de atividades sociais ou econômicas, considerando interesses contraditórios.',
                 'area' => 3,
             ],
-            [
-                'ordem' => 'H13',
-                'descricao' => 'Reconhecer mecanismos de transmissão da vida, prevendo ou explicando a manifestação de características dos seres vivos.',
-                'area' => 4,
-            ],
-            [
-                'ordem' => 'H14',
-                'descricao' => 'Identificar padrões em fenômenos e processos vitais dos organismos, como manutenção do equilíbrio interno, defesa, relações com o ambiente, sexualidade, entre outros.',
-                'area' => 4,
-            ],
-            [
-                'ordem' => 'H15',
-                'descricao' => 'Interpretar modelos e experimentos para explicar fenômenos ou processos biológicos em qualquer nível de organização dos sistemas biológicos.',
-                'area' => 4,
-            ],
-            [
-                'ordem' => 'H16',
-                'descricao' => 'Compreender o papel da evolução na produção de padrões, processos biológicos ou na organização taxonômica dos seres vivos.',
-                'area' => 4,
-            ],
+            // [
+            //     'ordem' => 'H13',
+            //     'descricao' => 'Reconhecer mecanismos de transmissão da vida, prevendo ou explicando a manifestação de características dos seres vivos.',
+            //     'area' => 4,
+            // ],
+            // [
+            //     'ordem' => 'H14',
+            //     'descricao' => 'Identificar padrões em fenômenos e processos vitais dos organismos, como manutenção do equilíbrio interno, defesa, relações com o ambiente, sexualidade, entre outros.',
+            //     'area' => 4,
+            // ],
+            // [
+            //     'ordem' => 'H15',
+            //     'descricao' => 'Interpretar modelos e experimentos para explicar fenômenos ou processos biológicos em qualquer nível de organização dos sistemas biológicos.',
+            //     'area' => 4,
+            // ],
+            // [
+            //     'ordem' => 'H16',
+            //     'descricao' => 'Compreender o papel da evolução na produção de padrões, processos biológicos ou na organização taxonômica dos seres vivos.',
+            //     'area' => 4,
+            // ],
             [
                 'ordem' => 'H17',
                 'descricao' => 'Relacionar informações apresentadas em diferentes formas de linguagem e representação usadas nas ciências físicas, químicas ou biológicas, como texto discursivo, gráficos, tabelas, relações matemáticas ou linguagem simbólica.',
@@ -118,26 +126,26 @@ class CompetenciaTableSeeder extends Seeder
                 'descricao' => 'Avaliar métodos, processos ou procedimentos das ciências naturais que contribuam para diagnosticar ou solucionar problemas de ordem social, econômica ou ambiental.',
                 'area' => 5,
             ],
-            [
-                'ordem' => 'H20',
-                'descricao' => 'Caracterizar causas ou efeitos dos movimentos de partículas, substâncias, objetos ou corpos celestes.',
-                'area' => 6,
-            ],
-            [
-                'ordem' => 'H21',
-                'descricao' => 'Utilizar leis físicas e (ou) químicas para interpretar processos naturais ou tecnológicos inseridos no contexto da termodinâmica e(ou) do eletromagnetismo.',
-                'area' => 6,
-            ],
-            [
-                'ordem' => 'H22',
-                'descricao' => 'Compreender fenômenos decorrentes da interação entre a radiação e a matéria em suas manifestações em processos naturais ou tecnológicos, ou em suas implicações biológicas, sociais, econômicas ou ambientais.',
-                'area' => 6,
-            ],
-            [
-                'ordem' => 'H23',
-                'descricao' => 'Avaliar possibilidades de geração, uso ou transformação de energia em ambientes específicos, considerando implicações éticas, ambientais, sociais e/ou econômicas.',
-                'area' => 6,
-            ],
+            // [
+            //     'ordem' => 'H20',
+            //     'descricao' => 'Caracterizar causas ou efeitos dos movimentos de partículas, substâncias, objetos ou corpos celestes.',
+            //     'area' => 6,
+            // ],
+            // [
+            //     'ordem' => 'H21',
+            //     'descricao' => 'Utilizar leis físicas e (ou) químicas para interpretar processos naturais ou tecnológicos inseridos no contexto da termodinâmica e(ou) do eletromagnetismo.',
+            //     'area' => 6,
+            // ],
+            // [
+            //     'ordem' => 'H22',
+            //     'descricao' => 'Compreender fenômenos decorrentes da interação entre a radiação e a matéria em suas manifestações em processos naturais ou tecnológicos, ou em suas implicações biológicas, sociais, econômicas ou ambientais.',
+            //     'area' => 6,
+            // ],
+            // [
+            //     'ordem' => 'H23',
+            //     'descricao' => 'Avaliar possibilidades de geração, uso ou transformação de energia em ambientes específicos, considerando implicações éticas, ambientais, sociais e/ou econômicas.',
+            //     'area' => 6,
+            // ],
             [
                 'ordem' => 'H24',
                 'descricao' => 'Utilizar códigos e nomenclatura da química para caracterizar materiais, substâncias ou transformações químicas.',
@@ -158,21 +166,29 @@ class CompetenciaTableSeeder extends Seeder
                 'descricao' => 'Avaliar propostas de intervenção no meio ambiente aplicando conhecimentos químicos, observando riscos ou benefícios.',
                 'area' => 7,
             ],
-            [
-                'ordem' => 'H28',
-                'descricao' => 'Associar características adaptativas dos organismos com seu modo de vida ou com seus limites de distribuição em diferentes ambientes, em especial em ambientes brasileiros.',
-                'area' => 8,
-            ],
-            [
-                'ordem' => 'H29',
-                'descricao' => 'Interpretar experimentos ou técnicas que utilizam seres vivos, analisando implicações para o ambiente, a saúde, a produção de alimentos, matérias primas ou produtos industriais.',
-                'area' => 8,
-            ],
-            [
-                'ordem' => 'H30',
-                'descricao' => 'Avaliar propostas de alcance individual ou coletivo, identificando aquelas que visam à preservação e a implementação da saúde individual, coletiva ou do ambiente.',
-                'area' => 8,
-            ],
+            // [
+            //     'ordem' => 'H28',
+            //     'descricao' => 'Associar características adaptativas dos organismos com seu modo de vida ou com seus limites de distribuição em diferentes ambientes, em especial em ambientes brasileiros.',
+            //     'area' => 8,
+            // ],
+            // [
+            //     'ordem' => 'H29',
+            //     'descricao' => 'Interpretar experimentos ou técnicas que utilizam seres vivos, analisando implicações para o ambiente, a saúde, a produção de alimentos, matérias primas ou produtos industriais.',
+            //     'area' => 8,
+            // ],
+            // [
+            //     'ordem' => 'H30',
+            //     'descricao' => 'Avaliar propostas de alcance individual ou coletivo, identificando aquelas que visam à preservação e a implementação da saúde individual, coletiva ou do ambiente.',
+            //     'area' => 8,
+            // ],
         ];
+
+        foreach ($competencias as $competencia) {
+            Competencia::create([
+                'ordem' => $competencia['ordem'],
+                'descricao' => $competencia['descricao'],
+                'area_id' => $competencia['area'],
+            ]);
+        }
     }
 }
