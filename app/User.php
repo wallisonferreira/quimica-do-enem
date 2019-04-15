@@ -2,7 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @property integer $id
@@ -14,8 +15,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $created_at
  * @property string $updated_at
  */
-class User extends Model
+class User extends Authenticatable
 {
+    use Notifiable;
+    
     /**
      * The table associated with the model.
      * 

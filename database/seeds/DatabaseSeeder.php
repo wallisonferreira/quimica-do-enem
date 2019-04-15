@@ -13,11 +13,12 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         
+        \App\User::truncate();
         \App\Conteudo::truncate();
         \App\Area::truncate();
         \App\Competencia::truncate();
 
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UserTableSeeder::class);
         $this->call(CompetenciaTableSeeder::class);
         $this->call(ConteudoTableSeeder::class);
     }

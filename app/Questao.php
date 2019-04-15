@@ -36,7 +36,17 @@ class Questao extends Model
     protected $fillable = [
         'descricao_problema', 
         'competencia_id',
+        'conteudo_id',
         'user_id',
+    ];
+
+    public $with = [
+        'competencia',
+        'conteudo',
+        'user',
+        'imagens',
+        'enunciados',
+        'alternativas',
     ];
 
     /**

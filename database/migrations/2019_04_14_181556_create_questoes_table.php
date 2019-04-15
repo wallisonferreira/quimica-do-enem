@@ -15,7 +15,7 @@ class CreateQuestoesTable extends Migration
     {
         Schema::create('questoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('descricao_problema');
+            $table->text('descricao_problema')->nullable();
             $table->integer('competencia_id')->unsigned();
             $table->integer('conteudo_id')->unsigned();
             $table->integer('user_id')->unsigned();
