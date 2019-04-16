@@ -32,7 +32,12 @@
                             @foreach ($questao->enunciados as $key => $enunciado)
                                 <p>{{ $enunciado->descricao_enunciado }}</p>
                             @endforeach
-                            <a href="{{ url('/questoes' . '/' . $questao->id ) }}" class="btn btn-primary">Gerenciar item...</a>
+
+                            @foreach ($questao->alternativas as $key => $alternativa)
+                                <p>{{ $alternativa->descricao_alternativa }}</p>
+                            @endforeach
+                            
+                            <a href="{{ url('/questoes/' . $questao->id ) }}" class="btn btn-primary">Gerenciar item...</a>
                             {{--  Fim de descrição do enunciado  --}}
                             </a>
                         @endforeach

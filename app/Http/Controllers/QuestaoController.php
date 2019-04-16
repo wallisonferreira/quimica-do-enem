@@ -14,9 +14,14 @@ class QuestaoController extends Controller
      */
     public function index()
     {
+        $indices = ['a', 'b', 'c', 'd', 'e'];
+
         $questoes = Questao::all();
 
-        return view('questoes.index', compact('questoes'));
+        return view('questoes.index', compact([
+            'questoes',
+            'indices'
+        ]));
     }
 
     /**
@@ -76,10 +81,16 @@ class QuestaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Questao $questao)
+    public function show($id)
     {
-        dd($questao);
-        return view('questoes.show', compact('questao'));
+        $indices = ['a','b','c','d','e'];
+
+        $questao = Questao::find($id);
+        
+        return view('questoes.show', compact([
+            'questao',
+            'indices'
+        ]));
     }
 
     /**
