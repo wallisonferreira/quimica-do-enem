@@ -24,3 +24,13 @@ Route::resource('questoes', 'QuestaoController', [
         'questoes' => 'questoes'
     ]
 ]);
+
+Route::resource('questoes.alternativas', 'QuestaoAlternativaController', [
+    'parameters' => [
+        'questoes' => 'questoes'
+    ],
+    'only' => [
+        'create',
+        'store'
+    ]
+]);

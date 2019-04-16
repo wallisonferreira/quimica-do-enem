@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Química do ENEM</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -90,11 +90,11 @@
                 <div class="links">
                     <a href="{{ route('questoes.index') }}">Banco de itens</a>
                     <a href="#">Entenda a T.R.I</a>
-                    <a href="#">Guia de Elaboração de ítens</a>
+                    <a href="#">Guia de Elaboração de itens</a>
                     <a href="#">Conteúdos frequentes</a>
                     <a href="#">Provas de química anteriores</a>
                     <a href="#">Ítens elaborados</a>
-                    <a href="#">Elabore seu ítem</a>
+                    <a href="#">Elabore seu item</a>
                 </div>
             </div>
         </div>

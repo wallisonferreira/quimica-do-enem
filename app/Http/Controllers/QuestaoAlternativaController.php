@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Questao;
 
-class QuestaoController extends Controller
+class QuestaoAlternativaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,7 @@ class QuestaoController extends Controller
      */
     public function index()
     {
-        $questoes = Questao::all();
-
-        return view('questoes.index', compact('questoes'));
+        //
     }
 
     /**
@@ -26,14 +23,7 @@ class QuestaoController extends Controller
      */
     public function create()
     {
-        $conteudos = \App\Conteudo::all();
-
-        $competencias = \App\Competencia::all();
-
-        return view('questoes.create', compact([
-            'conteudos',
-            'competencias',
-        ]));
+        //
     }
 
     /**
@@ -44,30 +34,7 @@ class QuestaoController extends Controller
      */
     public function store(Request $request)
     {
-        $questao = new Questao;
-        $questao->fill($request->all());
-        $questao->user_id = auth()->user()->id;
-        $questao->save();
-
-        if ($request->has('imagem') && $request->file('imagem')) {
-            $requestFile = $request->file('imagem');
-
-            $path = $requestFile->store('itens/imagens');
-
-            $imagem = \App\Imagem::create([
-                'path' => $path,
-                'questao_id' => $questao->id,
-            ]);
-        }
-
-        if ($request->has('descricao_enunciado') && $request->descricao_enunciado) {
-            $enunciado = new \App\Enunciado;
-            $enunciado->fill($request->all());
-            $enunciado->questao()->associate($questao);
-            $enunciado->save();
-        }
-
-        return redirect('/questoes')->with('success', 'Item salvo com sucesso!');
+        //
     }
 
     /**
@@ -76,10 +43,9 @@ class QuestaoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Questao $questao)
+    public function show($id)
     {
-        dd($questao);
-        return view('questoes.show', compact('questao'));
+        //
     }
 
     /**
