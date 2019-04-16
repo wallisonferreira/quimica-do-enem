@@ -91,8 +91,8 @@
                     <a href="{{ route('questoes.index') }}">Itens Elaborados</a>
                     <a href="#">Entenda a T.R.I</a>
                     <a href="#">Guia de Elaboração de itens</a>
-                    <a href="#">Elabore seu item</a>
-                    <a href="#">Conteúdos frequentes</a>
+                    <a href="{{ route('questoes.create') }}">Elabore seu item</a>
+                    <a href="{{ route('conteudos.index') }}">Conteúdos frequentes</a>
                     <a href="#">Provas de química anteriores</a>
                 </div>
             </div>

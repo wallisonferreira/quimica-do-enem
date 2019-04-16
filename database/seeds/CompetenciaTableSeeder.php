@@ -33,7 +33,7 @@ class CompetenciaTableSeeder extends Seeder
         $competencias = [
             [
                 'ordem' => 'H1',
-                'descricao' => 'Reconhecer características ou propriedades de fenômenos ondulatórios ou oscilatórios, relacionando-os a seus usos em difere ntes contextos.',
+                'descricao' => 'Reconhecer características ou propriedades de fenômenos ondulatórios ou oscilatórios, relacionando-os a seus usos em diferentes contextos.',
                 'area' => 1,
             ],
             [

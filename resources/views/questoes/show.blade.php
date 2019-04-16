@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card mb-3">
                 <div class="card-header">Gerenciamento de item</div>
 
@@ -14,24 +13,26 @@
                         </div>
                     @endif
                     
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <p>{{ $questao->descricao_problema }}</p>
+                    <p>{{ $questao->descricao_problema }}</p>
 
-                            @foreach ($questao->imagens as $key => $imagem)
-                                <img src="{{ asset('storage/' . $imagem->path) }}" class="card-image" alt="">
-                            @endforeach
+                    @foreach ($questao->imagens as $key => $imagem)
+                        <img src="{{ asset('storage/' . $imagem->path) }}" class="card-image" alt="">
+                    @endforeach
 
-                            @foreach ($questao->enunciados as $key => $enunciado)
-                                <p>{{ $enunciado->descricao_enunciado }}</p>
-                            @endforeach
+                    @foreach ($questao->enunciados as $key => $enunciado)
+                        <p>{{ $enunciado->descricao_enunciado }}</p>
+                    @endforeach
 
-                            @foreach ($questao->alternativas as $key => $alternativa)
-                                <p>{{ $alternativa->descricao_alternativa }}</p>
-                            @endforeach
-                        </a>
-                    </div>
+                    @foreach ($questao->alternativas as $key => $alternativa)
+                        @if ($alternativa->imagem == 0)
+                        <p>{{ $alternativa->descricao_alternativa }} <a href="{{ url('/questoes/' . $questao->id . '/alternativas/' . $alternativa->id . '/delete' ) }}">x</a></p>
+                        @endif
 
+                        @if ($alternativa->imagem == 1)
+                        <p>{{ $alternativa->descricao_alternativa }}<a href="{{ url('/questoes/' . $questao->id . '/alternativas/' . $alternativa->id . '/delete' ) }}">x</a></p>
+                        <img src="{{ asset('storage/' . $alternativa->path_alternativa) }}" class="card-image" alt="">
+                        @endif
+                    @endforeach
                 </div>
             </div>
             
@@ -49,11 +50,11 @@
                             <input type="file" class="form-control-file" id="alternativa_imagem" name="imagem_alternativa" aria-describedby="fileHelp">
                         </div>
                         <hr/>
+                        <input type="hidden" name="qtd_alternativas" value="{{ $questao->alternativas->count() }}">
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

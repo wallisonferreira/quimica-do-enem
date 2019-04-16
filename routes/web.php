@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/conteudos', 'ConteudoController@index')->name('conteudos.index');
+Route::get('/conteudos', function () {
+    return view('conteudos.index');
+})->name('conteudos.index');
+
 Route::resource('questoes', 'QuestaoController', [
     'parameters' => [
         'questoes' => 'questoes'
@@ -31,6 +36,11 @@ Route::resource('questoes.alternativas', 'QuestaoAlternativaController', [
     ],
     'only' => [
         'create',
-        'store'
+        'store',
     ]
 ]);
+
+Route::get(
+    '/questoes/{questoes}/alternativas/{alternativas}/delete', 
+    'QuestaoAlternativaController@destroy'
+)->name('questoes.alternativas.delete');

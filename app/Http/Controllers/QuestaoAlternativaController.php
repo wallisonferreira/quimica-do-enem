@@ -35,10 +35,13 @@ class QuestaoAlternativaController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $indices = [1=>'a)',2=>'b)',3=>'c)',4=>'d)',5=>'e)',6=>'f)',7=>'g)',8=>'h)'];
+
+        // dd($request->all());
         # Se for alternativa textual e não for nulo
         if ($request->has('descricao_alternativa') && !is_null($request->descricao_alternativa)) {
             $alternativa = \App\Alternativa::create([
-                'descricao_alternativa' => $request->descricao_alternativa,
+                'descricao_alternativa' => $indices[$request->qtd_alternativas + 1].' '.$request->descricao_alternativa,
                 'questao_id' => $id,
             ]);
             return redirect('/questoes/' . $id)->with('success', 'Salvo com sucesso!');
@@ -50,6 +53,7 @@ class QuestaoAlternativaController extends Controller
             $path = $requestFile->store('itens/alternativas/imagens');
 
             $imagem = \App\Alternativa::create([
+                'descricao_alternativa' => $indices[$request->qtd_alternativas + 1],
                 'path_alternativa' => $path,
                 'imagem' => 1,
                 'questao_id' => $id,
@@ -102,8 +106,12 @@ class QuestaoAlternativaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($questoes, $alternativas)
     {
-        //
+        $alternativa = Alternativa::find($alternativas);
+
+        $alternativa->delete();
+
+        return redirect('/questoes/' . $questoes)->with('success', 'Alternativa deletada com sucesso!');
     }
 }

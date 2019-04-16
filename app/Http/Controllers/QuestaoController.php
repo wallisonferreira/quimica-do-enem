@@ -16,7 +16,7 @@ class QuestaoController extends Controller
     {
         $indices = ['a', 'b', 'c', 'd', 'e'];
 
-        $questoes = Questao::all();
+        $questoes = Questao::orderBy('id','desc')->paginate(2);
 
         return view('questoes.index', compact([
             'questoes',
@@ -72,7 +72,7 @@ class QuestaoController extends Controller
             $enunciado->save();
         }
 
-        return redirect('/questoes')->with('success', 'Item salvo com sucesso!');
+        return redirect('/questoes/' . $questao->id)->with('success', 'Item salvo com sucesso!');
     }
 
     /**
@@ -83,7 +83,7 @@ class QuestaoController extends Controller
      */
     public function show($id)
     {
-        $indices = ['a','b','c','d','e'];
+        $indices = ['a)','b)','c)','d)','e)','f)','g)','h)'];
 
         $questao = Questao::find($id);
         
