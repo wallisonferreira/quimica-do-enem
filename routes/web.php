@@ -19,10 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/conteudos', 'ConteudoController@index')->name('conteudos.index');
 Route::get('/conteudos', function () {
     return view('conteudos.index');
 })->name('conteudos.index');
+
+Route::get('/guias', function () {
+    return view('guia.index');
+})->name('guias.index');
+
+Route::get('/tri', function () {
+    return view('tri.index');
+})->name('tri.index');
 
 Route::resource('questoes', 'QuestaoController', [
     'parameters' => [

@@ -4,7 +4,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mb-3">
-                <div class="card-header">Gerenciamento de item</div>
+                <div class="card-header">
+                    <h2 class="card-header-title">Gerenciamento de item</h2>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))

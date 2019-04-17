@@ -4,7 +4,9 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Adicionar novo item</div>
+                <div class="card-header">
+                    <h2 class="card-header-title">Adicionar novo item</h2>
+                </div>
 
                 <div class="card-body">
                     <form action="{{ route('questoes.store') }}" enctype="multipart/form-data" method="POST">
